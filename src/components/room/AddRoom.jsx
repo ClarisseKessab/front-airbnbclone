@@ -96,10 +96,11 @@ const AddRoom = () => {
               <img
                 src={imagePreview}
                 alt="Preview Room Photo"
+                className="max-w-xl mt-3 rounded-md"
               />
             )}
           </div>
-          <div className="mb-7">
+          <div className="mb-7 flex justify-center">
             <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-300">
               Save Room
             </button>
