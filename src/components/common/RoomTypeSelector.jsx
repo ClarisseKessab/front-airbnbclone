@@ -47,7 +47,7 @@ const RoomTypeSelector = ({ handleRoomInputChange, newRoom }) => {
         id="roomType"
         value={newRoom.roomType}
         onChange={handleSelectChange}
-        className="form-select"
+        className="w-full block px-2 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
       >
         <option value="">Select a Room Type</option>
         {roomTypes.map((type, index) => (
