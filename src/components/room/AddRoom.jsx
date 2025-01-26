@@ -52,49 +52,63 @@ const AddRoom = () => {
   }
 
   return (
-    <>
-    <section className="container mt-5 mb-5">
-      <div className="row justify-content-center">
-        <div className="col-md-8 col-lg-6">
-          <h2 className="mt-5 mb-2">Add a New Room</h2>
-          {successMessage ? (
-            <div className="alert alert-success fade show">
-              {successMessage}
+    <section>
+    <div className = "m-10 flex justify-center">
+      <div>
+        <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight mb-5">Add a New Room</h2>
+        {successMessage ? (
+          <div>
+            {successMessage}
+          </div>
+        ) : errorMessage ? (
+          <div>
+            {errorMessage}
+          </div>
+        ) : null}
+        <form onSubmit={handleSubmit}>
+          <div className="mb-5">
+            <label htmlFor="roomType" className="block text-2xl font-medium text-gray-900">Room Type</label>
+            <div>
+              <RoomTypeSelector handleRoomInputChange={handleRoomInputChange} newRoom={newRoom}/>
             </div>
-          ) : errorMessage ?(
-            <div className="alert alert-danger fade show">
-              {errorMessage}
-            </div>
-          ) : null }
-          <form onSubmit ={handleSubmit}>
-            <div className='mb-3'>
-              <label htmlFor="roomType" className="form-label">Room Type</label>
-              <div>
-                <RoomTypeSelector handleRoomInputChange={handleRoomInputChange} newRoom={newRoom}/>
-              </div>
-            </div>
-            <div className='mb-3'>
-              <label htmlFor="roomPrice" className="form-label">Room Price</label>
-              <input className="form-control" required id="roomPrice" name="roomPrice" type="number" value={newRoom.roomPrice} onChange={handleRoomInputChange}/>
-            </div>
-            <div className='mb-3'>
-              <label htmlFor="photo" className="form-label">Room Photo</label>
-              <input id="photo" name="photo" type="file" className="form-control" onChange={handleImageChange}/>
-              {imagePreview && (
-                <img src={imagePreview} alt="Preview Room Photo" style={{maxWidth:"400px", maxHeight:"400px"}} className="mb-3"/>
-              )}
-            </div>
-              <div className="d-grid d-flex mt-2">
-                <button className="btn btn-primary ml-5">Save Room</button>
-              </div>
-
-
-          </form>
-        </div>
-
+          </div>
+          <div className="mb-5">
+            <label htmlFor="roomPrice" className="block text-2xl font-medium text-gray-900">Room Price</label>
+            <input
+              required
+              id="roomPrice"
+              name="roomPrice"
+              type="number"
+              value={newRoom.roomPrice}
+              onChange={handleRoomInputChange}
+              className = "w-full block px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+          <div className="mb-5">
+            <label htmlFor="photo" className="block text-2xl font-medium text-gray-900">Room Photo</label>
+            <input
+              id="photo"
+              name="photo"
+              type="file"
+              onChange={handleImageChange}
+              className= "block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-white file:text-gray-700 border border-gray-200 rounded-md shadow-sm hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-100"/>
+            {imagePreview && (
+              <img
+                src={imagePreview}
+                alt="Preview Room Photo"
+              />
+            )}
+          </div>
+          <div className="mb-7">
+            <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-300">
+              Save Room
+            </button>
+          </div>
+        </form>
       </div>
-    </section>
-    </>
+    </div>
+  </section>
+
   )
 }
 
